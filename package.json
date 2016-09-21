@@ -1,0 +1,35 @@
+{
+  "name": "d3-lasso",
+  "version": "0.0.2",
+  "description": "A d3 plugin for lasso selecting elements",
+  "keywords": [
+    "d3",
+    "d3-lasso",
+    "lasso"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "build/d3-lasso.js",
+  "jsnext:main": "index",
+  "homepage": "https://github.com/skokenes/d3-lasso",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skokenes/d3-lasso.git"
+  },
+  "scripts": {
+    "pretest": "rm -rf build && mkdir build && rollup -c",
+    "test": "tape 'test/**/*-test.js'",
+    "prepublish": "npm run test && uglifyjs build/d3-lasso.js -c -m -o build/d3-lasso.min.js",
+    "postpublish": "zip -j build/d3-lasso.zip -- LICENSE README.md build/d3-lasso.js build/d3-lasso.min.js"
+  },
+  "devDependencies": {
+    "rollup": "0.27",
+    "rollup-plugin-commonjs": "^4.1.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "tape": "4",
+    "uglify-js": "2"
+  },
+  "dependencies": {
+    "d3-selection": "^1.0.2",
+    "robust-point-in-polygon": "^1.0.3"
+  }
+}
