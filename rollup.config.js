@@ -1,11 +1,12 @@
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import commonjs from "rollup-plugin-commonjs";
+import nodeResolve from "rollup-plugin-node-resolve";
 
 export default {
-  entry: 'index.js',
-  format: 'umd',
+  entry: "index.js",
+  format: "umd",
   globals: {
-    "d3-selection": "d3"
+    "d3-selection": "d3",
+    "d3-drag": "d3"
   },
   moduleName: "d3",
   dest: 'build/d3-lasso.js',
@@ -14,12 +15,12 @@ export default {
       jsnext: true,
       main: true,
       browser: true,
-      extensions: ['.js', '.jsx'],
-      skip: [ 'd3-selection']
+      extensions: [".js", ".jsx"],
+      skip: [ "d3-selection", "d3-drag"]
     }),
     commonjs({
-      include: 'node_modules/**',
-      exclude: [ 'node_modules/d3-selection/']
+      include: "node_modules/**",
+      exclude: [ "node_modules/d3-selection/"]
     })
   ]
 };

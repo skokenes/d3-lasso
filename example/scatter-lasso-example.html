@@ -2,7 +2,33 @@
 <head>
     <script src="d3-selection.js"></script>
     <script src="../build/d3-lasso.js"></script>
+    <style>
+        svg {
+            border: 1px solid black;
+        }
+
+        circle {
+            fill-opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
+    <script>
+        var data = new Array(100).fill(null).map(m=>[Math.random(),Math.random()]);
+        var w = 400;
+        var h = 400;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width",w)
+            .attr("height",h);
+        
+        var circles = svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx",d=>d[0]*w)
+            .attr("cy",d=>d[1]*h)
+            .attr("r",5);
+    </script>
 </body>
 </html>
