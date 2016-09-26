@@ -16,7 +16,7 @@ export default {
       main: true,
       browser: true,
       extensions: [".js", ".jsx"],
-      skip: [ "d3-selection", "d3-drag"]
+      skip: [ "d3-selection", "d3-drag","d3-dispatch"]
     }),
     commonjs({
       include: "node_modules/**",
