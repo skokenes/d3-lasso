@@ -11,7 +11,7 @@ When the lasso is used, it tags elements with properties of possible, not possib
 - possible: while drawing a lasso, if an element is part of the final selection that would be made if the lasso was completed at that instance, the element is tagged as possible
 - not possible: while drawing a lasso, if an element is not part of the final selection that would be made if the lasso was completed at that instance, the element is tagged as not possible
 - selected: when a lasso is completed, all elements that were tagged as possible get tagged as selected
-- not selected: when a lasso is completed, all elements that were tagged as possible get tagged as not selected
+- not selected: when a lasso is completed, all elements that were tagged as not possible get tagged as not selected
 
 The tags can be used in combination with functions to perform actions like styling the possible or selected values while the lasso is in use.
 
