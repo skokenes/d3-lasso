@@ -97,7 +97,7 @@ Once a lasso object is defined, it can be added to a page by calling it on an el
 ```
 var lasso = d3.lasso()
                 .items(d3.selectAll("circle")) // Create a lasso and provide it some target elements
-                .area(de.select("#myLassoRect")); // Sets the drag area for the lasso on the rectangle #myLassoRect
+                .targetArea(de.select("#myLassoRect")); // Sets the drag area for the lasso on the rectangle #myLassoRect
 d3.select("svg").call(lasso); // Initiate the lasso on an svg element
 ```
 
