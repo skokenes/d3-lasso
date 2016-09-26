@@ -4,6 +4,10 @@ d3-lasso.js is a D3 plugin that allows you to tag elements on a page by drawing 
 
 An example of the lasso implemented in a scatterplot can be found here: [http://bl.ocks.org/skokenes/a85800be6d89c76c1ca98493ae777572](http://bl.ocks.org/skokenes/a85800be6d89c76c1ca98493ae777572)
 
+More examples:
+
+[Reusable Bubble Chart with d3Kit](http://bl.ocks.org/timelyportfolio/02f5ee71719e3f85aeed9b33586da21e)
+
 Lassoing tags
 --
 When the lasso is used, it tags elements with properties of possible, not possible, selected, and not selected:
