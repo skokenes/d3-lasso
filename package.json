@@ -1,6 +1,6 @@
 {
   "name": "d3-lasso",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A d3 plugin for lasso selecting elements",
   "keywords": [
     "d3",
