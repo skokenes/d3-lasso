@@ -44,7 +44,7 @@ export default function() {
         var drawnCoords;
 
          // Apply drag behaviors
-        var dragAction = drag()
+        var dragAction = drag.drag()
             .on("start",dragstart)
             .on("drag",dragmove)
             .on("end",dragend);
@@ -87,19 +87,19 @@ export default function() {
         function dragmove() {
             // Get mouse position within body, used for calculations
             var x,y;
-            if(event.sourceEvent.type === "touchmove") {
-                x = event.sourceEvent.touches[0].clientX;
-                y = event.sourceEvent.touches[0].clientY;
+            if(selection.event.sourceEvent.type === "touchmove") {
+                x = selection.event.sourceEvent.touches[0].clientX;
+                y = selection.event.sourceEvent.touches[0].clientY;
             }
             else {
-                x = event.sourceEvent.clientX;
-                y = event.sourceEvent.clientY;
+                x = selection.event.sourceEvent.clientX;
+                y = selection.event.sourceEvent.clientY;
             }
             
 
             // Get mouse position within drawing area, used for rendering
-            var tx = mouse(this)[0];
-            var ty = mouse(this)[1];
+            var tx = selection.mouse(this)[0];
+            var ty = selection.mouse(this)[1];
 
             // Initialize the path or add the latest point to it
             if (tpath==="") {
