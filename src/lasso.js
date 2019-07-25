@@ -44,13 +44,13 @@ export default function() {
         var drawnCoords;
 
          // Apply drag behaviors
-        var drag = drag()
+        var dragAction = drag()
             .on("start",dragstart)
             .on("drag",dragmove)
             .on("end",dragend);
 
         // Call drag
-        targetArea.call(drag);
+        targetArea.call(dragAction);
 
         function dragstart() {
             // Init coordinates
