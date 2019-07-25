@@ -44,13 +44,13 @@ export default function() {
         var drawnCoords;
 
          // Apply drag behaviors
-        var drag = d3.drag()
+        var dragAction = drag.drag()
             .on("start",dragstart)
             .on("drag",dragmove)
             .on("end",dragend);
 
         // Call drag
-        targetArea.call(drag);
+        targetArea.call(dragAction);
 
         function dragstart() {
             // Init coordinates
@@ -87,19 +87,19 @@ export default function() {
         function dragmove() {
             // Get mouse position within body, used for calculations
             var x,y;
-            if(d3.event.sourceEvent.type === "touchmove") {
-                x = d3.event.sourceEvent.touches[0].clientX;
-                y = d3.event.sourceEvent.touches[0].clientY;
+            if(selection.event.sourceEvent.type === "touchmove") {
+                x = selection.event.sourceEvent.touches[0].clientX;
+                y = selection.event.sourceEvent.touches[0].clientY;
             }
             else {
-                x = d3.event.sourceEvent.clientX;
-                y = d3.event.sourceEvent.clientY;
+                x = selection.event.sourceEvent.clientX;
+                y = selection.event.sourceEvent.clientY;
             }
             
 
             // Get mouse position within drawing area, used for rendering
-            var tx = d3.mouse(this)[0];
-            var ty = d3.mouse(this)[1];
+            var tx = selection.mouse(this)[0];
+            var ty = selection.mouse(this)[1];
 
             // Initialize the path or add the latest point to it
             if (tpath==="") {
