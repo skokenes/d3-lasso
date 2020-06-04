@@ -62,6 +62,22 @@ The hoverSelect() parameter takes in a boolean that determines whether objects c
 lasso.hoverSelect(true); // allows hovering of elements for selection during lassoing
 ```
 
+lasso.**synthetic**(_[bool]_)
+
+TRY IT HERE: https://lasso-synthetic.stackblitz.io/
+
+The synthetic paramater takes in a boolean that determins whether the events will be rendered in the DOM (traditional lasso) or whether they are simply provided as Objects. This is to support scenarios like lasso-ing over a density map that contains way too many points to render in the DOM.
+Each point is expected to have at least the following signature:
+``` 
+{
+    x: number;
+    y: number;
+}
+```
+although it's strongly recommended to provide an id to later reconcile the lasso-ed items with the items in the application.
+
+Note that, if synthetic mode is needed, it is necessary that is set before providing the items.
+
 lasso.**closePathSelect**(_[bool]_)
 
 The closePathSelect() parameter takes in a boolean that determines whether objects can be lassoed by drawing a loop around them. The default value is set to true. If no input is specified, the function returns the lasso's current parameter.
@@ -89,6 +105,15 @@ The on() parameter takes in a type of event and a function for that event. There
 - start: this function will be executed whenever a lasso is started
 - draw: this function will execute repeatedly as the lasso is drawn
 - end: this function will be executed whenever a lasso is completed
+- clear: this function will be executed after a lasso is completed, by default it clears the lasso shape. It is invoked with three arguments:
+    
+    `dyn_path`: drawn path
+
+    `close_path`: auto-closing path if present
+
+    `origin_node`: node that identifies the location of lasso start
+
+
 
 If no function is specified, the function will return the current function defined for the type specified.
 ```
