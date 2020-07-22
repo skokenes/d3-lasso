@@ -1,4 +1,4 @@
-export = lasso;
+export {lasso};
 
 type LassoType = {
     items: (selection?: any[]) => LassoType;
